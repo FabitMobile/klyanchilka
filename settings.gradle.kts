@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 rootProject.name = "klyanchilka"
 include(":core")
 include(":googleplay")
-include(":ruStore")
+include(":rustore")

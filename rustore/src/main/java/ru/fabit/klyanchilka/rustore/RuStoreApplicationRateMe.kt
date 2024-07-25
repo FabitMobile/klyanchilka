@@ -5,7 +5,7 @@ import ru.fabit.klyanchilka.core.ApplicationRateMe
 import ru.fabit.klyanchilka.core.RateMeInfoCallBack
 import ru.rustore.sdk.review.RuStoreReviewManagerFactory
 
-abstract class RuStoreApplicationRateMe(context: Context) : ApplicationRateMe {
+open class RuStoreApplicationRateMe(context: Context) : ApplicationRateMe {
 
     private val manager = RuStoreReviewManagerFactory.create(context)
 
