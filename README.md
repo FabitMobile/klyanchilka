@@ -1,5 +1,7 @@
 # klyanchilka
 
+[![](https://www.jitpack.io/v/FabitMobile/klyanchilka.svg)](https://www.jitpack.io/#FabitMobile/klyanchilka)
+
 ### Библиотека для проверки и инициации встроенной оценки приложения из разных источников.
 
 содержит базовые классы для упрощения работы с обновлениями
@@ -13,6 +15,22 @@
 
 Добавить реализации `ApplicationRateMe`, воспользовавшись готовыми классами
 
+```kotlin
+class MaiActivity : AppCompatActivity() {
+    private val applicationRateMe : ApplicationRateMe = GoogleApplicationRateMe(this)
+
+    private val listener = object : RateMeInfoCallBack {
+        override fun onFailure(throwable: Throwable){ /* do something */ }
+        override fun onSuccess(){ /* do something */ }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        applicationRateMe.rateMe(this, listener)
+    }
+}
+```
+
 Выбрать необходимый источник обновлений используя функцию библиотеки
 
 ```kotlin
@@ -20,7 +38,7 @@ val installerPackage =
     context.packageManager.getInstallerPackageName(context.applicationInfo.packageName) ?: ""
 when (getInstallerVendor(installerPackage)) {
     InstallerVendor.googlePlay -> GoogleApplicationRateMe(...)
-    else -> NoOpRateMe(UpdateStatus.actual)
+    else -> RuStoreApplicationRateMe(...)
 }
 ```
 
