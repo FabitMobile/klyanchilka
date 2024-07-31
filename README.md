@@ -6,7 +6,7 @@
 
 содержит базовые классы для упрощения работы с обновлениями
 
-* `ApplicationRateMe` с тремя
+* `ApplicationRateMe` с четырьмя
   реализациями: `GoogleApplicationRateMe`, `GoogleApplicationRateMeForTest`, `HuaweiApplicationRateMe`
   и `RuStoreApplicationRateMe`
 * `InstallerVendor` и функиця `getInstallerVendor()`
