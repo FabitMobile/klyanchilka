@@ -8,7 +8,7 @@ import com.google.android.play.core.review.ReviewManagerFactory
 import ru.fabit.klyanchilka.core.ApplicationRateMe
 import ru.fabit.klyanchilka.core.RateMeInfoCallBack
 
-open class GoogleApplicationRateMe(context: Context) : ApplicationRateMe {
+open class GoogleApplicationRateMe(private val context: Context) : ApplicationRateMe {
 
     private val manager = ReviewManagerFactory.create(context)
 
@@ -32,5 +32,9 @@ open class GoogleApplicationRateMe(context: Context) : ApplicationRateMe {
             .addOnFailureListener { throwable ->
                 rateMeInfoCallBack.onFailure(throwable)
             }
+    }
+
+    override fun openStore() {
+        openStore(context, R.string.klyanchilka_google_url_format, context.packageName)
     }
 }

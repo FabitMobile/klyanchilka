@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="klyanchilka_google_url_format" translatable="false">
+        https://play.google.com/store/apps/details?id=%1$s
+    </string>
+</resources>
