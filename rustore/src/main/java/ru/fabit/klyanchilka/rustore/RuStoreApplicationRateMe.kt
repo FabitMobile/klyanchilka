@@ -5,7 +5,7 @@ import ru.fabit.klyanchilka.core.ApplicationRateMe
 import ru.fabit.klyanchilka.core.RateMeInfoCallBack
 import ru.rustore.sdk.review.RuStoreReviewManagerFactory
 
-open class RuStoreApplicationRateMe(context: Context) : ApplicationRateMe {
+open class RuStoreApplicationRateMe(private val context: Context) : ApplicationRateMe {
 
     private val manager = RuStoreReviewManagerFactory.create(context)
 
@@ -23,5 +23,9 @@ open class RuStoreApplicationRateMe(context: Context) : ApplicationRateMe {
             .addOnFailureListener { throwable ->
                 rateMeInfoCallBack.onFailure(throwable)
             }
+    }
+
+    override fun openStore() {
+        openStore(context, R.string.klyanchilka_rustore_url_format, context.packageName)
     }
 }

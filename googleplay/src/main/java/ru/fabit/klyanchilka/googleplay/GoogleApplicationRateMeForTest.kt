@@ -6,7 +6,7 @@ import com.google.android.play.core.review.testing.FakeReviewManager
 import ru.fabit.klyanchilka.core.ApplicationRateMe
 import ru.fabit.klyanchilka.core.RateMeInfoCallBack
 
-open class GoogleApplicationRateMeForTest(context: Context) : ApplicationRateMe {
+open class GoogleApplicationRateMeForTest(private val context: Context) : ApplicationRateMe {
 
     private val manager = FakeReviewManager(context)
 
@@ -24,5 +24,9 @@ open class GoogleApplicationRateMeForTest(context: Context) : ApplicationRateMe 
             .addOnFailureListener { throwable ->
                 rateMeInfoCallBack.onFailure(throwable)
             }
+    }
+
+    override fun openStore() {
+        openStore(context, R.string.klyanchilka_google_url_format, context.packageName)
     }
 }

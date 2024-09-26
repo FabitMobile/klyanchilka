@@ -3,4 +3,7 @@
     <string name="klyanchilka_huawei_url_format" translatable="false">
         https://appgallery.huawei.com/app/C%1$s
     </string>
+    <string name="klyanchilka_rustore_url_format" translatable="false">
+        https://www.rustore.ru/catalog/app/%1$s
+    </string>
 </resources>
