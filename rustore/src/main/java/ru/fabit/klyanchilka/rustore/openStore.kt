@@ -7,6 +7,8 @@ import androidx.annotation.StringRes
 
 fun openStore(context: Context, @StringRes urlFormat: Int, appId: String) {
     val url = context.getString(urlFormat, appId)
-    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    }
     context.startActivity(intent)
 }
